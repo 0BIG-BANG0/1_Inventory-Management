@@ -19,8 +19,10 @@ export default class ProductController {
 
   addNewProduct(req,res){
     //acess data from form
-    console.log(req.body);
-    let products = ProductModel.get();
-    res.render('products',{products:products})
+    console.log(req.body);//undefined
+    ProductModel.add(req.body)
+    let products = ProductModel.get();//returning newly added Products
+    
+    return res.render('products',{products})
   }
 }
