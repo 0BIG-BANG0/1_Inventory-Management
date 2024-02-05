@@ -11,30 +11,31 @@ export default class ProductModel {
     return products;
   }
 
-  static update(productObj) {
-    const index = products.findIndex((p) => p.id == productObj.id);
-    products[index] = productObj;
+  static update(productObj){
+   const index = products.findIndex((p)=>p.id == productObj.id)
+   products[index] = productObj;
   }
 
-  static add(productObj) {
+  static add(name,desc,price,imageUrl) {
     let newProduct = new ProductModel(
       products.length + 1,
-      productObj.name,
-      productObj.desc,
-      productObj.price,
-      productObj.imageUrl
+      name,
+      desc,
+      price,
+      imageUrl
     );
     products.push(newProduct);
   }
 
-  static getById(id) {
-    return products.find((p) => p.id == id);
+  static getById(id){
+    return products.find((p)=> p.id== id);
   }
 
-  static delete(id) {
-    const index = products.findIndex((p) => p.id == id);
-    products.splice(index, 1);
+  static delete(id){
+    const index = products.findIndex(p=> p.id== id);
+    products.splice(index,1)
   }
+
 }
 
 // Example data for testing
